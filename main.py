@@ -1,10 +1,15 @@
+import os
 import sqlite3
 import customtkinter
+from PIL import Image
 
 
 my_app = customtkinter.CTk()
 my_app.title("Login")
 my_app.config(bg="cyan")
+
+customtkinter.set_appearance_mode('dark')
+customtkinter.set_default_color_theme('blue')
 
 font1 = ('Arial', 25, 'bold')
 font2 = ('Arial', 13, 'bold')
@@ -21,11 +26,11 @@ For_Frame1 = customtkinter.CTkFrame(my_app, bg_color='cyan', fg_color='red', wid
 For_Frame1.place(x=0, y=0)
 
 # Load image
-"""""""""
-For_Image1 = customtkinter.CTkImage(Image.open(file="myimg.jpg"))
-For_Image1_label = customtkinter.CTkLabel(For_Frame1,  bg="#001220")
+image_path = os.path.join(os.path.dirname(__file__), 'myimg.jpg ')
+For_Image1 = customtkinter.CTkImage(light_image=Image.open(image_path), size=(50, 50))
+For_Image1_label = customtkinter.CTkLabel(my_app, image=For_Image1,  bg="#001220")
 For_Image1_label.place(x=0, y=0)
-"""""""""
+
 # create signup form
 
 SignUp_Label = customtkinter.CTkLabel(For_Frame1, font=font1, text_color="#fff", bg_color="#001200")
